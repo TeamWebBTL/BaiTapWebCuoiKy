@@ -133,5 +133,10 @@ namespace Ve.Controllers
                var lst = db.DONDATHANGs.Where(x => x.ID_KhachHang == ND.ID && x.TinhTrang == TT ).OrderBy(n => n.NgayDat);
                return View(lst);
           }
+          public ActionResult ChiTietDH(int? MaHD)
+          {
+               var lst = db.CHITIETDONHANGs.Where(x => x.ID_DDH == MaHD).ToList();
+               return View(lst);
+          }
      }
 }

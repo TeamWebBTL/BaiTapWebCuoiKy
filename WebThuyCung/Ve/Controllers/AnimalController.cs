@@ -27,26 +27,31 @@ namespace Ve.Controllers
               }*/
 
 
-            if (!string.IsNullOrWhiteSpace(Request.QueryString["type"]))
-            {
-                ViewBag.listAnimal = db.SINHVATs.Where(c => c.Loai == type).ToList();
-            }
+           // if (!string.IsNullOrWhiteSpace(Request.QueryString["type"]))
+           // {
+           //     ViewBag.listAnimal = db.SINHVATs.Where(c => c.Loai == type).ToList();
+           // }
 
-           else if (!string.IsNullOrWhiteSpace(Request.QueryString["color"]))
-            {
-                ViewBag.listAnimal = db.SINHVATs.Where(c => c.MauSac == color).ToList();
-            }
-           else if (!string.IsNullOrWhiteSpace(Request.QueryString["location"]))
-            {
-                ViewBag.listAnimal = db.SINHVATs.Where(c => c.ViTri == location).ToList();
-            }
-            else
-            {
-                return View();
-            }
-            return View();
-       
-        }
+           //else if (!string.IsNullOrWhiteSpace(Request.QueryString["color"]))
+           // {
+           //     ViewBag.listAnimal = db.SINHVATs.Where(c => c.MauSac == color).ToList();
+           // }
+           //else if (!string.IsNullOrWhiteSpace(Request.QueryString["location"]))
+           // {
+           //     ViewBag.listAnimal = db.SINHVATs.Where(c => c.ViTri == location).ToList();
+           // }
+           // else
+           // {
+           //     return View();
+           // }
+           // return View();
+              if (!string.IsNullOrWhiteSpace(Request.QueryString["location"]) || !string.IsNullOrWhiteSpace(Request.QueryString["location"]) || !string.IsNullOrWhiteSpace(Request.QueryString["location"]))
+              {
+                   ViewBag.listAnimal = db.SINHVATs.Where(c => c.Loai == type || c.MauSac == color || c.ViTri == location).ToList();
+              }
+              return View();
+              
+          }
         public ActionResult Details(int id)
         {
             var sv = db.SINHVATs.Where(c => c.ID == id).FirstOrDefault();

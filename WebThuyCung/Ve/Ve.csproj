@@ -2114,6 +2114,7 @@
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\ThanhToan\XemDonHang1.cshtml" />
+    <Content Include="Views\ThanhToan\ChiTietDH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

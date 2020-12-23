@@ -5,7 +5,6 @@
     ViewBag.Title = "DanhSachDon";
     Layout = "~/Views/Shared/BottomPartial.cshtml";
 
-    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -33,33 +32,51 @@
     </style>
 </head>
 <body>
-    <div id="info">
-    <h2>Quản lý đơn hàng </h2>
-    <br />
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="@Url.Action("XemDonHang1","ThanhToan",new {TT= "Đang Xử Lý" })">Đang Xử Lý</a></li>
-        <li role="presentation"><a href="@Url.Action("XemDonHang1","ThanhToan",new { TT = "Đang Giao Hàng"})">Đang Giao </a></li>
-        <li role="presentation"><a href="@Url.Action("XemDonHang1","ThanhToan",new { TT = "Đã Giao Hàng"})">Đã Giao </a></li>
-    </ul>
-    <br />
-    @grid.GetHtml(
-        tableStyle: "divTable",
-        headerStyle: "gridHead",
-        footerStyle: "gridFooter",
-        rowStyle: "gridRow",
-        alternatingRowStyle: "gridAltRow",
-        columns: grid.Columns(
-        grid.Column("ID", header: "Mã đơn hàng"),
-            grid.Column("HoTen", header: "Họ tên KH"),
-            grid.Column("NgayDat", header: "Ngày đặt"),
-            grid.Column("DiaChi", header: "Địa Chỉ"),
-            grid.Column("SĐT", header: "SĐT"),
-            grid.Column("TinhTrang", header: "Tình trạng"),
-            grid.Column("TongTien", header: "Tổng tiền")
+    <div class="container">
+        <div class="row">
+            <div class=" col-sm-1">
 
-            //grid.Column("DaThanhToan", header: "Đã thanh toán")
-            ))
-     </div>
+            </div>
+            <div class=" col-sm-10">
+                <div style="color: red; text-align:center;font-size:25px;margin-top:10px">Thông Tin Đơn Hàng</div>
+                <br />
+                <div style="text-align:center">
+                    <a href="@Url.Action("XemDonHang1", "ThanhToan", new {TT = "Đang Xử Lý"})" style="text-decoration: none;">Đang Xử Lý         ||         </a>
+                    <a href="@Url.Action("XemDonHang1", "ThanhToan", new {TT ="Đang Giao Hàng"})" style="text-decoration: none;">Đang Giao Hàng          ||          </a>
+                    <a href="@Url.Action("XemDonHang1", "ThanhToan", new {TT ="Đã Giao Hàng"})" style="text-decoration: none;">Đã Giao Hàng</a>
+                </div>
+                <br />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Mã hóa đơn</th>
+                            <th style="text-align:center">Trạng thái vận chuyển</th>
+                            <th style="text-align:center">Tổng tiền</th>
+                            <th style="text-align:center">Địa chỉ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align:center"><a href="@Url.Action("ChiTietDH", "ThanhToan", new {MaHD = @item.ID})"> @item.ID</a></td>
+                                <td style="text-align:center">@item.TinhTrang</td>
+                                <td style="text-align:center">@item.TongTien</td>
+                                <td style="text-align:center">@item.DiaChi</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <br />
+                <br />
+            </div>
+            <div class=" col-sm-1">
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 @*Css cho controller*@
