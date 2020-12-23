@@ -1,0 +1,64 @@
+﻿@model Ve.Models.SINHVAT
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(2)').addClass('active');
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="~/public/images/anh-nen-1.jpg" alt="" class="w-100" style="position: absolute; z-index: 1">
+        <img src="~/public/images/vien-1.png" alt="" class="w-100" style="position: relative; z-index: 3; padding-top: 410px">
+    </div>
+    <div style="margin-bottom:25px">
+
+        <div class="container">
+            <div class="row">
+                
+                    <div class="col-sm-6">
+                        <div class="imagesm1 rounded fit">
+                            <a href="#" class="link">
+                                <img width="503px" height="503px" src="~/public/images/sinh-vat/@Model.Anh" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>@Model.Ten</h3>
+                        <ul>
+                            <li>@Model.Loai</li>
+                            <li>@Model.ViTri</li>
+                            <li>@Model.MauSac</li>
+                            <li>@Model.MoTa</li>
+                        </ul>
+                    </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+
+</html>

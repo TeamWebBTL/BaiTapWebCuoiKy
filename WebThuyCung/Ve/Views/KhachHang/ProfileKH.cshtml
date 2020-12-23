@@ -1,0 +1,280 @@
+﻿@using Ve.Models
+@model KHACHHANG
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="~/public/css/support.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/support.js"></script>
+    <script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+</head>
+<body>
+    <style>
+        #wrapper {
+        }
+
+        #info {
+            margin: 0px auto;
+            margin-bottom: 30px;
+            background: #eceeef57;
+            height: 450px;
+            width: 40%;
+            border: 2px;
+        }
+
+        .page-content {
+            margin: 20px 20px 20px 20px;
+            padding: 1rem;
+        }
+
+        .addition-line {
+            font-size: .9rem;
+            min-height: 2rem;
+            margin-bottom: .5rem;
+            display: flex;
+        }
+
+        .key {
+            font-weight: 500;
+            min-width: 120px;
+        }
+
+        .field {
+            margin-bottom: .75rem;
+        }
+
+        .label {
+            margin-bottom: .5em;
+            font-weight: 500;
+            font-size: .8rem;
+        }
+
+        .control {
+            box-sizing: border-box;
+            clear: both;
+            font-size: 1rem;
+            position: relative;
+            text-align: inherit;
+        }
+
+
+        .input {
+            box-shadow: none;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .select.is-fullwidth, .select.is-fullwidth select {
+            width: 100%;
+        }
+    </style>
+    <div id="wrapper">
+        <h4 style="text-align:center ">Thông Tin Tài Khoản</h4>
+        <div id="info">
+
+            <div class="page-content">
+                <form action="/KhachHang/Update" method="post">
+               
+                    <div class="addition-line">
+                        <p class="key">Số điện thoại:</p>
+                        <p class="value">@Model.SDT</p>
+                    </div>
+                    <div class="addition-line">
+                        <p class="key">Email:</p>
+                        <p class="value">@Model.Email</p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Họ và Tên</label>
+                        <div class="control">
+                            <input autocomplete="off" placeholder="Nhập họ tên" required="required" class="input" value="@Model.Ten" name="txtHoTen" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Tỉnh / Thành phố</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select name="calc_shipping_provinces" required="required">
+                                    <option data-v-c48e1c72="" value="">Chọn tỉnh thành...</option>
+                                    <option data-v-c48e1c72="" value="Hà Nội">Hà Nội</option>
+                                    <option data-v-c48e1c72="" value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                    <option data-v-c48e1c72="" value="Đà Nẵng">Đà Nẵng</option>
+                                    <option data-v-c48e1c72="" value="Hải Phòng">Hải Phòng</option>
+                                    <option data-v-c48e1c72="" value="Quảng Ninh">Quảng Ninh</option>
+                                    <option data-v-c48e1c72="" value="Khánh Hòa">Khánh Hòa</option>
+                                    <option data-v-c48e1c72="" value="An Giang">An Giang</option>
+                                    <option data-v-c48e1c72="" value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                                    <option data-v-c48e1c72="" value="Bắc Ninh">Bắc Ninh</option>
+                                    <option data-v-c48e1c72="" value="Bắc Giang">Bắc Giang</option>
+                                    <option data-v-c48e1c72="" value="Bình Dương">Bình Dương</option>
+                                    <option data-v-c48e1c72="" value="Bình Định">Bình Định</option>
+                                    <option data-v-c48e1c72="" value="Bình Phước">Bình Phước</option>
+                                    <option data-v-c48e1c72="" value="Bình Thuận">Bình Thuận</option>
+                                    <option data-v-c48e1c72="" value="Bến Tre">Bến Tre</option>
+                                    <option data-v-c48e1c72="" value="Bắc Cạn">Bắc Cạn</option>
+                                    <option data-v-c48e1c72="" value="Cần Thơ">Cần Thơ</option>
+                                    <option data-v-c48e1c72="" value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                    <option data-v-c48e1c72="" value="Lào Cai">Lào Cai</option>
+                                    <option data-v-c48e1c72="" value="Đồng Nai">Đồng Nai</option>
+                                    <option data-v-c48e1c72="" value="Nam Định">Nam Định</option>
+                                    <option data-v-c48e1c72="" value="Cà Mau">Cà Mau</option>
+                                    <option data-v-c48e1c72="" value="Cao Bằng">Cao Bằng</option>
+                                    <option data-v-c48e1c72="" value="Gia Lai">Gia Lai</option>
+                                    <option data-v-c48e1c72="" value="Hà Giang">Hà Giang</option>
+                                    <option data-v-c48e1c72="" value="Hà Nam">Hà Nam</option>
+                                    <option data-v-c48e1c72="" value="Hà Tĩnh">Hà Tĩnh</option>
+                                    <option data-v-c48e1c72="" value="Hải Dương">Hải Dương</option>
+                                    <option data-v-c48e1c72="" value="Hòa Bình">Hòa Bình</option>
+                                    <option data-v-c48e1c72="" value="Hưng Yên">Hưng Yên</option>
+                                    <option data-v-c48e1c72="" value="Kiên Giang">Kiên Giang</option>
+                                    <option data-v-c48e1c72="" value="Kon Tum">Kon Tum</option>
+                                    <option data-v-c48e1c72="" value="Lai Châu">Lai Châu</option>
+                                    <option data-v-c48e1c72="" value="Lâm Đồng">Lâm Đồng</option>
+                                    <option data-v-c48e1c72="" value="Lạng Sơn">Lạng Sơn</option>
+                                    <option data-v-c48e1c72="" value="Long An">Long An</option>
+                                    <option data-v-c48e1c72="" value="Nghệ An">Nghệ An</option>
+                                    <option data-v-c48e1c72="" value="Ninh Bình">Ninh Bình</option>
+                                    <option data-v-c48e1c72="" value="Ninh Thuận">Ninh Thuận</option>
+                                    <option data-v-c48e1c72="" value="Phú Thọ">Phú Thọ</option>
+                                    <option data-v-c48e1c72="" value="Phú Yên">Phú Yên</option>
+                                    <option data-v-c48e1c72="" value="Quảng Bình">Quảng Bình</option>
+                                    <option data-v-c48e1c72="" value="Quảng Nam">Quảng Nam</option>
+                                    <option data-v-c48e1c72="" value="Quảng Ngãi">Quảng Ngãi</option>
+                                    <option data-v-c48e1c72="" value="Quảng Trị">Quảng Trị</option>
+                                    <option data-v-c48e1c72="" value="Sóc Trăng">Sóc Trăng</option>
+                                    <option data-v-c48e1c72="" value="Sơn La">Sơn La</option>
+                                    <option data-v-c48e1c72="" value="Tây Ninh">Tây Ninh</option>
+                                    <option data-v-c48e1c72="" value="Thái Bình">Thái Bình</option>
+                                    <option data-v-c48e1c72="" value="Thái Nguyên">Thái Nguyên</option>
+                                    <option data-v-c48e1c72="" value="Thanh Hóa">Thanh Hóa</option>
+                                    <option data-v-c48e1c72="" value="Tiền Giang">Tiền Giang</option>
+                                    <option data-v-c48e1c72="" value="Trà Vinh">Trà Vinh</option>
+                                    <option data-v-c48e1c72="" value="Tuyên Quang">Tuyên Quang</option>
+                                    <option data-v-c48e1c72="" value="Vĩnh Long">Vĩnh Long</option>
+                                    <option data-v-c48e1c72="" value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                    <option data-v-c48e1c72="" value="Yên Bái">Yên Bái</option>
+                                    <option data-v-c48e1c72="" value="Đắc Lắc">Đắc Lắc</option>
+                                    <option data-v-c48e1c72="" value="Đồng Tháp">Đồng Tháp</option>
+                                    <option data-v-c48e1c72="" value="Đắc Nông">Đắc Nông</option>
+                                    <option data-v-c48e1c72="" value="Hậu Giang">Hậu Giang</option>
+                                    <option data-v-c48e1c72="" value="Bạc Liêu">Bạc Liêu</option>
+                                    <option data-v-c48e1c72="" value="Điện Biên">Điện Biên</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Quận huyện</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select name="calc_shipping_district" required="required">
+                                    <option value="">Chọn quận huyện...</option> <!---->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Địa chỉ</label>
+                        <div class="control">
+                            <input autocomplete="off" placeholder="Nhập địa chỉ" required="required" class="input" value="@Model.DiaChi" name="txtDiaChi" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button class="btn-submit">
+                            Lưu
+                        </button>
+                    </div>
+                    </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+    //<![CDATA[
+        if (address_2 = localStorage.getItem('address_2_saved')) {
+            $('select[name="calc_shipping_district"] option').each(function () {
+                if ($(this).text() == address_2) {
+                    $(this).attr('selected', '')
+                }
+            })
+            $('input.billing_address_2').attr('value', address_2)
+        }
+        if (district = localStorage.getItem('district')) {
+            $('select[name="calc_shipping_district"]').html(district)
+            $('select[name="calc_shipping_district"]').on('change', function () {
+                var target = $(this).children('option:selected')
+                target.attr('selected', '')
+                $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+                address_2 = target.text()
+                $('input.billing_address_2').attr('value', address_2)
+                district = $('select[name="calc_shipping_district"]').html()
+                localStorage.setItem('district', district)
+                localStorage.setItem('address_2_saved', address_2)
+            })
+        }
+        $('select[name="calc_shipping_provinces"]').each(function () {
+            var $this = $(this),
+                stc = ''
+            c.forEach(function (i, e) {
+                e += +1
+                stc += '<option value=' + e + '>' + i + '</option>'
+                $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
+                if (address_1 = localStorage.getItem('address_1_saved')) {
+                    $('select[name="calc_shipping_provinces"] option').each(function () {
+                        if ($(this).text() == address_1) {
+                            $(this).attr('selected', '')
+                        }
+                    })
+                    $('input.billing_address_1').attr('value', address_1)
+                }
+                $this.on('change', function (i) {
+                    i = $this.children('option:selected').index() - 1
+                    var str = '',
+                        r = $this.val()
+                    if (r != '') {
+                        arr[i].forEach(function (el) {
+                            str += '<option value="' + el + '">' + el + '</option>'
+                            $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
+                        })
+                        var address_1 = $this.children('option:selected').text()
+                        var district = $('select[name="calc_shipping_district"]').html()
+                        localStorage.setItem('address_1_saved', address_1)
+                        localStorage.setItem('district', district)
+                        $('select[name="calc_shipping_district"]').on('change', function () {
+                            var target = $(this).children('option:selected')
+                            target.attr('selected', '')
+                            $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+                            var address_2 = target.text()
+                            $('input.billing_address_2').attr('value', address_2)
+                            district = $('select[name="calc_shipping_district"]').html()
+                            localStorage.setItem('district', district)
+                            localStorage.setItem('address_2_saved', address_2)
+                        })
+                    } else {
+                        $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
+                        district = $('select[name="calc_shipping_district"]').html()
+                        localStorage.setItem('district', district)
+                        localStorage.removeItem('address_1_saved', address_1)
+                    }
+                })
+            })
+        })
+//]]></script>
+</body>
+</html>
+

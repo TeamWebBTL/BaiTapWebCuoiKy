@@ -1,0 +1,97 @@
+﻿@using Ve.Models;
+@model VE
+@{
+    ViewBag.Title = "ChiTietVe";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/css/ChiTietVe.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(3)').addClass('active');
+
+        });
+    </script>
+
+</head>
+<body>
+    @using (Ajax.BeginForm("ThemSP2", "GioHang", new { @mave = Model.ID }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
+    {
+        <div class="container">
+            <div class="row" style="margin-top:10px">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-8">
+                    <a href="~/Home/Index" style="text-decoration: none;">Aquarium NEXUS /</a>
+                    <a href="~/Ticket/Index" style="text-decoration: none;">Mua Vé /</a>
+                    <span class="active">@Model.TenVe</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                    <img src="~/public/images/@Model.HinhAnh">
+                </div>
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group py-1 mb-2">
+                        <div class=" text-md-center">
+                            <div class="row" style="padding-bottom:15px">
+                                <span style="font-weight:bold;color:orangered;text-align:center;font-size:25px">@Model.TenVe</span>
+                            </div>
+                        
+                            <div class="row" style="font-size:20px">
+                                <span><pre>Đơn giá   :</pre></span>
+                                <div style="font-weight:bold"><pre>@Model.DonGia</pre></div>
+                            </div>
+                            <div class="row" style="font-size:20px">
+                                <span><pre>Số lượng  :</pre></span>
+                                <div>
+                                    <pre><input style="width:100px" name="txtSoLuong" value="1" type="number" min="1"></pre>
+                                </div>
+                            </div>
+                            <div class="row" style="font-size:20px">
+                                <span>Mô tả:</span>
+                                <div style="width:300px">@Model.MoTa</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                </div>
+                <div class="col-sm-5">
+                    <div style="text-align:center;list-style-type:none;padding-bottom:20px;">
+                    
+                        <input value="Thêm vào giỏ hàng" type="submit" class="btn-submit" onclick="myFunction()">
+                        <div id="snackbar">Bạn đã thêm vào giỏ hàng thành công</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+

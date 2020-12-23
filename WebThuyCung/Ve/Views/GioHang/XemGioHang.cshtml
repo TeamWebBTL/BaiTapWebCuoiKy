@@ -1,0 +1,226 @@
+﻿@using Ve.Models;
+@model List<GIOHANG>
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(3)').addClass('active');
+
+        });
+    </script>
+    <style>
+        .free-shipping-progress {
+            padding: 1rem .5rem 0;
+            font-size: 30px;
+        }
+
+        .progress-bar {
+            position: relative;
+            margin: 0;
+            left: 300px;
+            padding: 4px;
+            background-color: #ecf1f6;
+            border-radius: 290486px;
+            width: 528px;
+        }
+
+        .mile {
+            position: absolute;
+            background: #ecf1f6;
+            width: 24px;
+            height: 24px;
+            z-index: 0;
+            font-size: .75rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            top: 50%;
+            left: 12px;
+            transform: translate(-12px,-12px);
+        }
+
+        .mile-text {
+            font-size: 0.9rem;
+            position: absolute;
+            z-index: 3;
+            top: -25px;
+            text-align: center;
+            transform: translateX(-50%);
+        }
+
+        .step-1 {
+            left: 0%;
+        }
+
+        .step-2 {
+            left: 60%;
+        }
+
+        .step-3 {
+            left: auto;
+            right: -25px;
+        }
+
+        .icon {
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        .help-text {
+            font-size: 1.2rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .progress {
+            position: relative;
+            z-index: 2;
+            height: .5rem;
+            margin-bottom: 0;
+        }
+
+        .reach {
+            background: #1d8ae4;
+            border: 2px solid #ecf1f6;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="main">
+                <div class="content">
+                    <div>
+                        <h2 style="text-align:center">Giỏ hàng của bạn </h2>
+                        <div class="container">
+                            <table id="cart">
+                                <thead>
+                                    <tr class="text-center" style="color: orange;">
+                                        <th style="width: 49px">Chọn</th>
+                                        <th style="width: 20px">Mave</th>
+                                        <th style="width: 159px"></th>
+                                        <th style="width: 320px">Sản phẩm</th>
+                                        <th style="width: 110px">Đơn giá</th>
+                                        <th style="width: 91px">Số lượng</th>
+                                        <th style="width: 178px"> Thành tiền</th>
+                                        <th style="width: 127px">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="CartGioHang">
+                                    @foreach (var item in Model)
+                                     {
+                                        @Html.Action("ChiTietVe", "GioHang", new { mave = @item.ID_Ve, soLuong = @item.SoLuong });
+                                     }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <a href="/Ticket/Index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua vé</a>
+                                        </td>
+                                        <td colspan="2" class="hidden-xs"> </td>
+                                        <td class="hidden-xs text-center">
+                                            <strong>Tổng tiền</strong>
+                                        </td>
+
+                                        <td class="hidden-xs text-center">
+                                            <strong style="color: red;" id="TongTien">0</strong><p>đồng</p>
+                                        </td>
+                                        <td>
+                                            <a id="TongTien1" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                                        </td>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-info">
+            <div class="free-shipping-progress in-cart">
+                <div class="progress-bar">
+                    <progress max="100" class="progress" id="progress"></progress>
+                    <div class="mile-text step-1"></div>
+                    <div class="mile-text step-2">Freeship TP.HN</div>
+                    <div class="mile-text step-3">Freeship</div>
+                    <div class="mile step-1 reach"> <div class="icon"></div></div>
+                    <div class="mile step-2 reach"> <div class="icon"></div></div>
+                    <div class="mile step-3 reach"> <div class="icon"></div></div>
+                </div>
+                <div class="help-text">Giá trị đơn 1.000.000₫ để được Freeship</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    function xemKetQua() {
+        // Xác định 2 thẻ theo id
+        var input_text = document.getElementsByClassName("Num")
+        var result = document.getElementsByClassName("ThanhTien")
+        var id = document.getElementsByClassName("MaVe")
+        var Gia = document.getElementsByClassName("DonGia")
+        var TongTien = document.getElementById("TongTien")
+        var chon = document.getElementsByClassName("check")
+        var tong = 0       
+        // lấy giá trị của input_text
+
+        for (var i = 0; i < input_text.length; i++) {
+            if (input_text[i].value < 1) {
+                input_text[i].value = 1
+            }
+            var text = input_text[i].value
+            var tien = Gia[i].innerHTML
+            // gán giá trị cho result
+            result[i].innerHTML = text * tien
+            subTong = text * tien
+            if (chon[i].checked == true)
+            {
+                tong += subTong               
+            }
+            
+        }
+        var fhip = (tong / 1000000) * 100
+        TongTien.innerHTML = tong
+        TongTien1.setAttribute("href", "/ThanhToan/Index?tongtien=" + tong)
+        progress.setAttribute("value", fhip)
+    }
+
+    function CapNhatThanhToan() {
+        xemKetQua();
+    };
+    window.onload = function () {
+        CapNhatThanhToan();
+    }
+
+</script>

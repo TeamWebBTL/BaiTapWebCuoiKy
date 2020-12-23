@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.icon-ft{
+    list-style: none;
+
+}
+.icon-ft li{
+    float: left;
+    padding-right: 10px;
+    font-size: 25px;
+}
+.footer1{
+    width: 15% ;
+    float: left;
+}
+.footer2{
+    width: 27% ;
+    float: left;
+    padding-left: 10%;
+}
+.footer3{
+    width: 28% ;
+    float: left;
+    line-height: 35px;
+    padding-left: 5%;
+}
+.footer3 a{
+    text-decoration: none;
+    color: black;
+}
+.footer4{
+    width: 30%;
+    font-family: Arial;
+    font-size: 17px;
+}
+.footer4 p{
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.footer4 ul li{
+    list-style: none;
+    line-height: 30px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 12px;
+}

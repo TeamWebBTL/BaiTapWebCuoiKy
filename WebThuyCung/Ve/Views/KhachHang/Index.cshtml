@@ -1,0 +1,112 @@
+﻿@using Ve.Models
+@model KHACHHANG
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="~/public/css/support.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/support.js"></script>   
+</head>
+<body>
+    <style>
+        #wrapper{
+            
+        }
+        #info{
+            margin: 0px  auto;
+            margin-bottom:30px;
+            background: #eceeef57;
+            height:300px;
+            width: 40%;
+            border:2px;
+        }
+         
+        .profile-object {
+            margin-right: 1rem;
+            padding-top: 10px;
+            padding-right:15px;
+        }
+        .profile {
+            margin-bottom: 1rem;
+            color: #333;
+            display: flex;
+        }
+        .user-nav {
+            border: 1px solid #e6e6e6;
+        }
+         .user-nav a {
+            display: flex;
+            align-items: center;
+            font-size: .9rem;
+            padding: .55rem 1rem;
+            border: 1px solid #e6e6e6;
+            color: #111;
+        }
+        .page-content{
+            margin:20px 20px 20px 20px;
+        }
+
+        .icon {
+            align-items: center;
+            display: inline-flex;
+            height: 1.5rem;
+            width: 1.5rem;
+            margin:10px 10px 10px 10px 
+        }
+    </style>
+    <div id="wrapper">
+        <h4 style="text-align:center ">Tài Khoản</h4>
+        <div id="info">
+            
+            <div class="page-content">
+                <div  class="profile">
+                    <div class="profile-object">
+                    <span  class="icon">
+                        <img src="~/public/images/account.png" alt="" >
+                    </span>
+                    </div> 
+                    <div >
+                        <div style="margin-top:20px">
+                            @Model.Ten <i >ID: @Model.TaiKhoan</i>
+                        </div>
+                    </div>
+                </div>
+                <nav class="user-nav">
+                    <a href="/ThanhToan/XemDonHang" class="">
+                        <span class="icon">
+                            <img src="~/public/images/list.png" alt="">
+                        </span>
+                        <span data-v-46415968="" >Đơn Hàng</span>
+                    </a>
+                    <a href="/KhachHang/ProfileKH" class="">
+                        <span class="icon">
+                            <img src="~/public/images/user.png" alt="">
+                        </span>
+                        <span data-v-46415968="">Thông Tin Tài Khoản</span>
+                    </a>
+                    <a href="/Home/DangXuat" class="">
+                        <span class="icon">
+                            <img src="~/public/images/logout.png" alt="">
+                        </span>
+                        <span data-v-46415968="">Đăng Xuất</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

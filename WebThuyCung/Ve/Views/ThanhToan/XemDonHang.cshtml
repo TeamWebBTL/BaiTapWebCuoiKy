@@ -1,0 +1,104 @@
+﻿@using Ve.Models;
+@model IEnumerable<DONDATHANG>
+
+@{
+    ViewBag.Title = "DanhSachDon";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus Aquarium|ThanhToan</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <style>
+        #info {
+            margin: 0px auto;
+            margin-bottom: 30px;
+            background: #eceeef57;
+            height: 450px;
+            width: 80%;
+            border: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <h2>Quản lý đơn hàng </h2>
+        <br />
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="@Url.Action("XemDonHang1","ThanhToan",new {TT= "Đang Xử Lý" })">Đang Xử Lý</a></li>
+            <li role="presentation"><a href="@Url.Action("XemDonHang1","ThanhToan",new { TT = "Đang Giao Hàng"})">Đang Giao </a></li>
+            <li role="presentation"><a href="@Url.Action("XemDonHang1","ThanhToan",new { TT = "Đã Giao Hàng"})">Đã Giao </a></li>
+        </ul>
+        <br />
+        @grid.GetHtml(
+            tableStyle: "divTable",
+            headerStyle: "gridHead",
+            footerStyle: "gridFooter",
+            rowStyle: "gridRow",
+            alternatingRowStyle: "gridAltRow",
+            columns: grid.Columns(
+            grid.Column("ID", header: "Mã đơn hàng"),
+                grid.Column("HoTen", header: "Họ tên KH"),
+                grid.Column("NgayDat", header: "Ngày đặt"),
+                grid.Column("DiaChi", header: "Địa Chỉ"),
+                grid.Column("SĐT", header: "SĐT"),
+                grid.Column("TinhTrang", header: "Tình trạng"),
+                grid.Column("TongTien", header: "Tổng tiền")
+
+                //grid.Column("DaThanhToan", header: "Đã thanh toán")
+                ))
+    </div>
+</body>
+</html>
+@*Css cho controller*@
+<style>
+
+
+    .divTable {
+        width: 100%;
+        border: 1px solid #999999;
+    }
+
+        .divTable td {
+            border: 1px solid #999999;
+        }
+
+    .gridHead {
+        background-color: Green;
+    }
+
+        .gridHead > th > a {
+            color: #fff;
+        }
+
+    .gridFooter {
+        font-weight: bold;
+    }
+
+    .divTable a {
+        color: blue;
+    }
+    /*.gridRow {
+        color:#fff;
+        background-color:blueviolet;
+    }
+    .gridAltRow {
+        color:#fff;
+        background-color:darkorange;
+    }*/
+</style>
+
+
+

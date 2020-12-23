@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Contact</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="~/public/css/contact.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/public/vendor/fontawesome/css/all.css">
+    <script type="text/javascript" src="~/public/vendor/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/validator.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+    <!--phần bản đồ-->
+    <script type="text/javascript">
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 38.8896198, lng: -77.0251659 };
+            // The map, centered at Uluru
+            var map1 = new google.maps.Map(         //đối tượng để tạo bản đồ
+                document.getElementById('map'), {
+                center: uluru,  //hiển thị vị trí chính giữa của bản đồ gồm kinh độ và vĩ độ trên bản đồ
+                zoom: 15,
+                scrollwheel: false,   //tác dụng là phóng to và thu nhỏ bản đồ
+
+            });
+
+            // The marker, positioned at Uluru
+
+
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(5)').addClass('active');
+
+        });
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN3udbFEqU5EwjR3_JB6Je8zEXUKbPXFA&callback=initMap">
+    </script>
+    <!--hết phần bản đồ-->
+
+</head>
+<body>
+
+    <div class=" text-center man_hinh">
+        <img src="~/public/images/anh-nen-4.jpg" width="100%" ">
+    </div>
+    <!--hết phần đầu-->
+    <!--thông tin-->
+    <div class="section_2">
+        <div class="container">
+            <div class="content_1">
+            </div>
+
+            <div class="content_2">
+                <div class="row">
+                    <!--liên hệ 1-->
+                    <div class="col-md-7 mb-3">
+                        <div class="mb-3">
+                            <h4>LIÊN HỆ VỚI CHÚNG TÔI</h4>
+                        </div>
+                        <div class="lien_he_1">
+                            <form data-toggle="validator" role="form">
+                                <div class="form-group">
+                                    <!-- <input type="text" name="ten" class="form-control" id="exampleInputName1" placeholder="Họ và Tên"> -->
+                                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" data-error="Bắt buộc!" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <input type="number" name="phone"class="form-control" id="exampleInputPhone1" placeholder="Số điện thoại"> -->
+                                    <input type="number" class="form-control" id="inputPhone" placeholder="Số điện thoại" data-error="Bắt buộc!" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> -->
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bắt buộc!" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <input type="text" name="ten" class="form-control" id="exampleInputName1" placeholder="Họ và Tên"> -->
+                                    <input type="text" class="form-control" id="inputDress" placeholder="Địa chỉ" data-error="bắt buộc!" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> -->
+                                    <!-- <input type="text" class="form-control" id="inputEmail" placeholder="Content" data-error="Vui lòng nhập" required> -->
+                                    <textarea class="form-control" rows="5" id="inputContent" placeholder="Tin nhắn" data-error="Bắt buộc!" required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="">
+                                    <!-- <button type="button" onclick="formX()"class="btn btn-default dang_ky">Đăng ký</button> -->
+                                    <button type="submit" label="Save" onclick="save()" class="btn btn-primary" id="btn_submit" style="width: 300px;">Gửi</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!--hết liên hệ 1-->
+
+                    <div class="col-md-1"></div>
+
+                    <!--liên hệ 2-->
+                    <div class="col-md-4 giua">
+                        <h4 class="mb-3">NEXUS AQUARIUM</h4>
+                        <ul class="list-inline">
+                            <div class="row">
+                                <li><a href="#" class="color_xanh_1"><i class="far fa-address-card"></i></a></li>
+                                <li><a href="#" class="color_den"> Nexus Aquarium, National Mall, Washington, DC</a></li><br>
+                            </div>
+                            <div class="row">
+                                <li><a href="#" class="color_xanh_2"><i class="fas fa-phone-square"></i></a></li>
+                                <li><a href="#" class="color_den"> 1900 1001 (Time on works))</a></li><br>
+                            </div>
+                            <div class="row">
+                                <li><a href="#" class="color_cam"><i class="fas fa-fax"></i></a></li>
+                                <li><a href="#" class="color_den"> +84 (0) 243 123 456</a></li><br>
+                            </div>
+                            <div class="row">
+                                <li><a href="#" class="color_xanh_3"><i class="far fa-envelope"></i></a></li>
+                                <li><a href="#" class="color_den"> NeuxsAquarium@gmail.com</a></li><br>
+                            </div>
+                            <div class="row">
+                                <li><a href="#" class=""><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/nexusaquarium/" title="Facebook" style="color: blue;font-weight:500">https://www.facebook.com/nexusaquarium/</a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--hết phần thông tin-->
+    <!--cảm ơn-->
+    <div class="cam_on">
+        <div class="container">
+            Nếu có bất kỳ câu hỏi hay khiếu nại nào, vui lòng để lại thông tin theo mẫu đơn trên. Xin chân thành cảm ơn!
+        </div>
+    </div>
+
+    <div class="section section_3">
+        <div class="container">
+            <div class="row">
+            </div>
+
+            <div class="col-lg-12 col-xs-12 ban_do">
+                <div class="row">
+                    <!-- <div id="googleMap" style="width:1100px; height: 450px;">Google Map</div> -->
+                    <div id="map"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

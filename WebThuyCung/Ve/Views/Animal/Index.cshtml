@@ -1,0 +1,160 @@
+﻿@model Ve.Models.SINHVAT
+
+@{ ViewBag.Title = "Index";
+   Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(2)').addClass('active');
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <img src="~/public/images/anh-nen-1.jpg" alt="" class="w-100" style="position: absolute; z-index: 1">
+        <img src="~/public/images/vien-1.png" alt="" class="w-100" style="position: relative; z-index: 3; padding-top: 410px">
+    </div>
+
+    <div>
+        <div class="container">
+            <div class="row form-group py-1 mb-2">
+                <div class="col-md-4 col-sm-12 text-md-center">
+                    <select class="custom-select" id="select-loai" name="sv_loai" onchange="filter()">
+                        <option value="#" selected="selected">Lọc theo loại</option>
+                        <option name="sv_loai" value="luong_cu">Lưỡng cư</option>
+                        <option name="sv_loai" value="chim">Chim</option>
+                        <option name="sv_loai" value="ca">Cá</option>
+                        <option name="sv_loai" value="khong_xuong_song">Không xương sống</option>
+                        <option name="sv_loai" value="co_vu">Có vú</option>
+                        <option name="sv_loai" value="bo_sat">Bò sát</option>
+                        <option name="sv_loai" value="ca_map">Cá mập</option>
+                        <option name="sv_loai" value="ca_duoi">Cá đuối</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-12 text-md-center">
+                    <select class="custom-select" id="select-mausac" onchange="filter()">
+                        <option value="#" selected="selected">Lọc  theo màu sắc</option>
+                        <option name="sv_mausac" value="trang">Trắng</option>
+                        <option name="sv_mausac" value="do">Đỏ</option>
+                        <option name="sv_mausac" value="cam">Cam</option>
+                        <option name="sv_mausac" value="vang">Vàng</option>
+                        <option name="sv_mausac" value="xanh_luc">Xanh lục</option>
+                        <option name="sv_mausac" value="lam">Xanh lam</option>
+                        <option name="sv_mausac" value="tim">Tím</option>
+                        <option name="sv_mausac" value="hong">Hồng</option>
+                        <option name="sv_mausac" value="nau">Nâu</option>
+                        <option name="sv_mausac" value="den">Đen</option>
+                        <option name="sv_mausac" value="xam">Xám</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-12 text-md-center">
+                    <select class="custom-select" id="select-vitri" onchange="filter()">
+                        <option value="#" selected="selected">Lọc theo vị trí</option>
+                        <option name="sv_vitri" value="chau_phii">Châu Phi</option>
+                        <option name="sv_vitri" value="chau_a">Châu Á</option>
+                        <option name="sv_vitri" value="chau_uc">Châu Úc</option>
+                        <option name="sv_vitri" value="chau_au">Châu Âu</option>
+                        <option name="sv_vitri" value="bac_my">Bắc Mỹ</option>
+                        <option name="sv_vitri" value="nam_my">Nam Mỹ</option>
+                        <option name="sv_vitri" value="bac_bang_duong">Bắc Băng Dương</option>
+                        <option name="sv_vitri" value="dai_tay_duong">Đại Tây Dương</option>
+                        <option name="sv_vitri" value="an_do_duong">Ấn Độ Dương</option>
+                        <option name="sv_vitri" value="thai_binh_duong">Thái Bình Dương</option>
+                        <option name="sv_vitri" value="nam_dai_duong">Nam Đại Dương</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="container">
+                <div class="row" id="inner-item" >
+                    @foreach (Ve.Models.SINHVAT sinhvat in ViewBag.listAnimal)
+                    {
+                        <div class="col-sm-6 col-md-3 text-sm-center text-xs-center text-md-center mb-2">
+                            <div class="card-img-top">
+                                <img class="w-100" styte="heigh: 50%;" src="~/public/images/sinh-vat/@sinhvat.Anh" alt="">
+                            </div>
+                            <div class="my-1">
+
+                                <h5 class="card-title">@sinhvat.Ten</h5>
+                                <a href="/Animal/Details/@sinhvat.ID">Chi tiết</a>
+
+                            </div>
+
+                        </div>
+                     }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function filter() {
+            var x = document.getElementById("select-loai").value;
+            var y = document.getElementById("select-mausac").value;
+            console.log(y);
+            var z = document.getElementById("select-vitri").value;
+        
+          $.ajax({
+              type: "GET",
+              url: '@Url.Action("Index","Animal")',
+              data: {
+                  type: x,
+                  color: y,
+                  location : z,
+              },
+              success: function (result) {
+                  document.querySelector('html').innerHTML = result;
+              }
+
+            })
+
+
+        }
+    </script>
+    <!--<script type="text/javascript">
+        $.ajax({
+            url: '/info-sinh-vat',
+            success: function (result) {
+                var items = result;
+                var content = '';-->
+                @*for (var i = 0; i < items.length; i++) {
+                    content += '<div class="col-sm-6 col-md-3 text-sm-center text-xs-center text-md-center mb-2">';
+                    content += '<div class="card-img-top">';
+                    content += '<img class="w-100" src="' + items[i].sv_anh + '" alt="">';
+                    content += '</div>';
+                    content += '<div class="my-1">';
+                    content += '<h5 class="card-title">' + items[i].sv_ten + '</h5>';
+                    content += '<a href="animal-pages/animal-' + items[i].sv_id + '.html">Chi tiết</a>';
+                    content += '</div>';
+                    content += '</div>';
+                }
+                document.getElementById('inner-item').innerHTML = content;*@
+            <!--}
+        });
+    </script>-->
+</body>
+</html>
+

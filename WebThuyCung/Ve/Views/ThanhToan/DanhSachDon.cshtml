@@ -1,0 +1,78 @@
+﻿@using Ve.Models;
+@model List<DONDATHANG>
+@{
+    ViewBag.Title = "DanhSachDon";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(3)').addClass('active');
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="main">
+                <div class="content">
+                    <div>
+                        <h2 style="text-align:center">Đơn Hàng Của Bạn </h2>
+                        <div class="container">
+                            <table id="cart">
+                                <thead>
+                                    <tr class="text-center" style="color: orange;">
+                                        <th style="width: 200px">Mã</th>                                       
+                                        <th style="width: 400px">Ngày mua</th>
+                                        <th style="width: 800px">Họ Và Tên</th>
+                                        <th style="width: 800px">Số Điện Thoại</th>
+                                        <th style="width: 600px">Thành tiền</th>
+                                        <th style="width: 1200px">Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="CartGioHang">
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="text-center">
+                                            <th style="width: 200px">@Html.Raw(item.ID)</th>
+                                            <th style="width: 200px">@Html.Raw(item.NgayDat)</th>
+                                            <th style="width: 400px">@Html.Raw(item.HoTen)</th>                                           
+                                            <th style="width: 800px">@Html.Raw(item.SĐT)</th>
+                                            <th style="width: 600px">@Html.Raw(item.TongTien)</th>
+                                            <th style="width: 1200px">@Html.Raw(item.TinhTrang)</th>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                <tfoot>
+                                    <tr>
+                                        
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

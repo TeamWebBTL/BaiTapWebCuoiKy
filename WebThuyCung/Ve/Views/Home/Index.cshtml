@@ -1,0 +1,215 @@
+﻿@using Ve.Models;
+@model List<SUKIEN>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="~/public/css/home.css">
+    <script type="text/javascript" src="~/public/vendor/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="~/public/vendor/js/home.js"></script>
+</head>
+<body>
+    <div class="phantren ">
+
+        <div class="menu col-xs-8 push-xs-2 pt-3">
+            <nav class="navbar navbar-light bg-faded" style="background-color:#FEFEFF">
+                <div class="container">
+                    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2"></button>
+                    <div class=" collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item col-xs-2">
+                                <a class="nav-link pt-1" role="button" href="/Home/Index"><img class="logo" src="~/public/images/logo-1.jpg" style="height:auto;" alt=""></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Event/Index">Sự kiện</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Animal/Index">Sinh vật</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Ticket/Index">Mua vé</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Support/Index">Hỗ trợ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contact/Index">Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/About/Index">Về chúng tôi</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="hieuung">
+            <div class="anhnen"></div>
+            <div><img src="~/public/images/vien-2.png" alt="" class="vien"></div>
+        </div>
+
+
+        <div class="chuto">KHÁM PHÁ THỦY CUNG <br> LỚN NHẤT WASHINGTON</div>
+        <div class="chunho">Khám phá Nexus Aquarium</div>
+        <a href="/About/Index" class="nutbk"><button class="btn btn-primary" type="button">KHÁM PHÁ</button></a>
+
+    </div> <!-- het phan banner -->
+    <!-- phan noi dung -->
+    <div id="tong" style="background-color: #F7F7F7">
+        <div class="col-xs-12 text-md-center">
+            <p style="font-family: Arial;font-size: 40px;line-height:1.5;padding-top: 25px;padding-bottom: 25px;">Ưu đãi mùa hè này</p>
+        </div>
+        <!-- het tieu đề -->
+        <!-- khung1 -->
+        <div class=" col-xs-12 ">
+            <div class="container khung1">
+                <div class="row khung">
+                    <div class="col-xs-6 img">
+                        <img src="~/public/images/demo-2.jpg" alt="" class="img">
+                    </div>
+                    <div class="col-xs-6 text-xs-center">
+                        <div class="col-xs-12" style="margin-top: 150px">
+                            <h3>Ưu đãi thăm quan đăng ký theo đoàn</h3>
+                            <p>Giảm ngay 35% đăng ký trước ngày 30-11-2020.</p>
+                            <a href="/Ticket/Index"><button type="button" class="btn btn-primary ">Tìm hiểu thêm</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- het khung1 -->
+        <!-- khung2 -->
+
+        <div class=" col-xs-12 mt-3 mb-3">
+            <div class="container khung1">
+                <div class="row khung">
+                    <div class="col-xs-7">
+
+                        <h2 class="pt-2 mb-2 text-xs-center">Sự kiện hot tháng 11</h2>
+                        @foreach (var item in Model)
+                         {
+                          <div class="col-xs-12 text-xs-center">
+                            <h3>@item.TieuDe</h3>
+                            <a href="/Event/Details/@item.ID"><button type="button" class="btn btn-primary ">Tìm hiểu thêm</button></a>
+                            </div>
+                         }
+                    </div>
+                    <div class="col-xs-5 img">
+                        <img src="~/public/images/hai-cau.jpg" alt="" class="img2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="khung2 col-xs-12 mt-3 pt-2">
+            <div class="container">
+                <header class="slide">
+                    <div class="anhslide">
+                        <div class="_1slide active">
+
+                            <a href="#"><img src="~/public/images/gallery-1.jpg" alt=""></a>
+
+                            <a href="#"><img src="~/public/images/gallery-2.jpg" alt="" style="margin-left: 5%;margin-right: 5%;"></a>
+
+                            <a href="#"><img src="~/public/images/gallery-3.jpg" alt=""></a>
+
+                        </div>
+                        <div class="_1slide">
+
+                            <a href="#"><img src="~/public/images/gallery-4.jpg" alt=""></a>
+
+                            <a href="#"><img src="~/public/images/gallery-5.jpg" alt="" style="margin-left: 5%;margin-right: 5%;"></a>
+
+                            <a href="#"><img src="~/public/images/demo-2.jpg" alt=""></a>
+
+                        </div>
+                        <div class="_1slide">
+
+                            <a href="#"><img src="~/public/images/gallery-6.jpg" alt=""></a>
+
+                            <a href="#"><img src="~/public/images/gallery-7.jpg" alt="" style="margin-left: 5%;margin-right: 5%;"></a>
+
+                            <a href="#"><img src="~/public/images/gallery-8.jpg" alt=""></a>
+
+                        </div>
+
+                    </div>
+                    <div class="nutslide">
+                        <div class="next"><i class="fa fa-chevron-circle-right" style="font-size: 400%;color: white"></i></div><i class=""></i>
+                        <div class="prev"><i class="fa fa-chevron-circle-left" style="font-size: 400%;color: white"></i></div>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="anh-qc">
+                    <img src="~/public/images/slide-1.jpg" alt="" width="100%" style="background-size: cover;">
+                </div>
+                <div class="nd-qc col-xs-6 push-xs-3">
+                    <h2>Thủy cung lớn nhất nước mỹ trong tương lai</h2>
+                    <p>Kế hoạch mở rộng thủy cung Nexus Aquarium, cũng như kế hoạch mở phòng trưng bày cá mập-một <br> trong những loài bị hiểu lầm nhất trong đại dương-sẽ mở cửa vào năm 2020.</p>
+                    <a href="http://aquariumnexus.com/"><button class="btn btn-primary">Tìm hiểu thêm</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- het khung2 -->
+
+        <div class="col-xs-12 nha-tai-tro pt-3 pb-3">
+            <div class="container">
+                <h3 style="padding-bottom: 40px;">CÁC NHÀ TÀI TRỢ CỦA CHÚNG TÔI</h3>
+                <img src="~/public/images/taitro.png" alt="" style="text-align: center; width: 100%">
+            </div>
+        </div>
+
+        <div class="footer col-xs-12 pb-3" style="background-color: #FFFFFF">
+            <div class="container">
+                <div class="row">
+                    <div class="footer1 pt-3">
+                        <img src="~/public/images/logo-1.jpg" alt="" class="logo">
+                        <h6>2019 Nexus Aquarium</h6>
+                    </div>
+                    <div class="footer2 pt-3">
+                        <h4>Liên Hệ :</h4>
+                        <ul class="icon-ft">
+                            <li><i class="fab fa-facebook-square" style="color: #3B5998;"></i></li>
+                            <li><i class="fab fa-twitter-square" style="color: #31C6FB"></i></li>
+                            <li><i class="fab fa-youtube" style="color: #FF0F0F"></i></li>
+                            <li><i class="fab fa-instagram" style="color: #CB487A"></i></li>
+                            <li><i class="fab fa-google-plus-square" style="color: #DF4A32"></i></li>
+                        </ul>
+                        <p>Điện thoại:</p>
+                        <p>+84 678 555 6868</p>
+                    </div>
+                    <div class="footer3 pt-3">
+                        <h4>Bạn cần gì ?</h4>
+                        <a href="/Ticket/Index">Thông tin mua vé</a><br>
+                        <a href="/Support/support1">Chỉ đường và đỗ xe</a><br>
+                        <a href="/Support/Index">An ninh thủy cung</a><br>
+                    </div>
+                    <div class="footer4 pt-3">
+                        <p>Thủy cung Nexus Aquarium là thủy cũng rất lớn gôm nhiều sinh vật biển. Đây là trung tâm lớn để tổ chức các sự kiện của trường nhằm mục đích học tập và du lịch</p>
+                        <h6>Được công nhận bởi:</h6>
+                        <ul>
+                            <li>Hiệp hội sở thú & thủy cung(AZM)</li>
+                            <li>Hiệp hội huấn luyện động vật biển quốc tế IMATA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>       
+</body>
+</html>
+
+

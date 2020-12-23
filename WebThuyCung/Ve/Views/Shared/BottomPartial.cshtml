@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+   
+    <header>
+        <nav class="navbar navbar-light bg-faded navbar-sticky-top">
+            <div class="container">
+                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2"></button>
+                
+                <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index"><img width="30px" height="auto" src="~/public/images/logo.png"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Event/Index">Sự kiện</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Animal/Index">Sinh vật</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Ticket/Index">Mua vé</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Support/Index">Hỗ trợ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Contact/Index">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/About/Index">Về chúng tôi</a>
+                        </li>
+                        @Html.Partial("~/Views/Shared/HeaderTopPartial.cshtml")
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="footer col-xs-12 pb-3 bg-faded">
+            <div class="container">
+                <div class="row">
+                    <div class="footer1 pt-3">
+                        <img src="~/public/images/logo-1.jpg" width="150px" alt="" class="logo">
+                        <h6>2019 Nexus Aquarium</h6>
+                    </div>
+                    <div class="footer2 pt-3">
+                        <h4>Liên Hệ :</h4>
+                        <ul class="icon-ft">
+                            <li><i class="fab fa-facebook-square" style="color: #3B5998;"></i></li>
+                            <li><i class="fab fa-twitter-square" style="color: #31C6FB"></i></li>
+                            <li><i class="fab fa-youtube" style="color: #FF0F0F"></i></li>
+                            <li><i class="fab fa-instagram" style="color: #CB487A"></i></li>
+                            <li><i class="fab fa-google-plus-square" style="color: #DF4A32"></i></li>
+                        </ul>
+                        <p>Điện thoại:</p>
+                        <p>+84 678 555 6868</p>
+                    </div>
+                    <div class="footer3 pt-3">
+                        <h4>Bạn cần gì ?</h4>
+                        <a href="/Ticket/Index">Thông tin mua vé</a><br>
+                        <a href="/Support/Support1">Chỉ đường và đỗ xe</a><br>
+                        <a href="/Support/Index">An ninh thủy cung</a><br>
+                    </div>
+                    <div class="footer4 pt-3">
+                        <p>Thủy cung Nexus Aquarium là thủy cũng rất lớn gôm nhiều sinh vật biển. Đây là trung tâm lớn để tổ chức các sự kiện của trường nhằm mục đích học tập và du lịch</p>
+                        <h6>Được công nhận bởi:</h6>
+                        <ul>
+                            <li>Hiệp hội sở thú & thủy cung(AZM)</li>
+                            <li>Hiệp hội huấn luyện động vật biển quốc tế IMATA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<style>
+    .header-left {
+        float: right;
+        margin-top: 4px;
+    }
+</style>
+<script type="text/javascript">
+    
+    //Ví dụ về lấy giá trị từ textbox
+    $("#btnDangNhap1").click(function () {
+        var TaiKhoan = $(".TaiKhoan").val();
+        var MatKhau = $(".MatKhau").val();
+        //alert("Tài khoản:" + TaiKhoan + "\n Mật khẩu:" + MatKhau);
+        if (TaiKhoan == "") {
+            alert("Lỗi");
+            return;
+        }
+    });
+    
+    
+    function myFunction() {
+         var x = document.getElementById("snackbar");
+         x.className = "show";
+         setTimeout(function () {
+             x.className = x.className.replace("show", "");
+         }, 3000);
+     }
+</script>
+

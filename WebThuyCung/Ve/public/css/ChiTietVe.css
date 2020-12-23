@@ -1,0 +1,31 @@
+﻿.btn_submit {
+    background-color: orangered;   
+    padding:15px 15px 15px 15px;
+    border-radius:10px;
+    text-align:center;
+}
+.soluong {
+    margin-bottom: 15px;
+}
+
+.show {
+    display: block !important;
+}
+.label_sl {
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 0;
+    width: 100px;
+    color: #0c0c0c;
+    z-index: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align:right;
+    padding-top:2px;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px !important;
+}

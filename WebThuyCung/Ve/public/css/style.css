@@ -1,0 +1,243 @@
+﻿body {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, label, p {
+    margin: 0;
+}
+
+
+/*----*/
+
+.itemContainer div {
+    float: left;
+    margin: 5px 20px 5px 20px;
+}
+
+.itemContainer a {
+    text-decoration: none;
+}
+/*--header--*/
+.header {
+    border-bottom: 1px solid #000;
+}
+
+.header-top {
+    display: block;
+}
+
+.header-left {
+    float: right;
+    margin-top: 4px;
+}
+
+.header-left ul {
+    float: left;
+}
+
+.header-left ul li {
+    display: inline-block;
+}
+
+.header-left ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: 0 2em 0 0;
+}
+
+.header-left ul li a:hover {
+    color: #EF5F21;
+}
+/*-header-*/
+
+.register {
+    padding: 2em 0;
+}
+    /*--register--*/
+    .register h1 {
+        font-size: 3em;
+        font-family: 'Lato', sans-serif;
+        color: #000;
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 1em;
+    }
+.register-top-grid h3, .register-bottom-grid h3 {
+    font-size: 1.5em;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.register-top-grid span, .register-bottom-grid span {
+    font-size: 1em;
+    display: block;
+    color: #A09F9F;
+}
+
+.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+    background: none;
+    outline: none;
+    border: 1px solid #A09F9F;
+    -webkit-appearance: none;
+}
+
+.checkbox {
+    margin-bottom: 4px;
+    padding-left: 27px;
+    line-height: 27px;
+    cursor: pointer;
+    float: left;
+    position: relative;
+}
+
+.news-letter {
+    color: #EF5F21;
+    font-size: 1em;
+    margin-bottom: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    font-weight: 400;
+}
+
+.checkbox i {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 2px solid #EF5F21;
+}
+
+.checkbox input + i:after {
+    content: '';
+    background: url("../images/tick1.png") no-repeat 1px 2px;
+    top: -1px;
+    left: -1px;
+    width: 15px;
+    height: 15px;
+    font: normal 12px/16px FontAwesome;
+    text-align: center;
+}
+
+.checkbox input + i:after {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.1s;
+    -o-transition: opacity 0.1s;
+    -ms-transition: opacity 0.1s;
+    -moz-transition: opacity 0.1s;
+    -webkit-transition: opacity 0.1s;
+}
+
+.checkbox input {
+    position: absolute;
+    left: -9999px;
+}
+
+.checkbox input:checked + i:after {
+    opacity: 1;
+}
+
+.news-letter:hover {
+    color: #000;
+}
+
+.register-bottom-grid input[type="submit"] {
+    background: #EF5F21;
+    padding: 0.4em 1em;
+    color: #fff;
+    font-size: 1.2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    border: none;
+    outline: none;
+}
+
+    .register-bottom-grid input[type="submit"]:hover {
+        background: #000;
+    }
+.labelq{
+    font-weight:bold;
+    color:navy;
+}
+.btn-submit {
+    border-radius: 10px;
+    background-color: orangered;
+    padding: 15px 15px 15px 15px
+}
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#snackbar-visible {
+    visibility: visible;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+
+
+.ThanhToan{
+    text-align:left;
+    font-size:20px;
+}
+
+
+
+

@@ -1,0 +1,494 @@
+﻿@using Ve.Models;
+@model KHACHHANG
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|ThanhToan</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <style>
+        .bqACGT .card-img {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .jFkAwY {
+            width: 1270px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .ggAFge {
+            flex-basis: 72%;
+            padding: 25px 15px 0px;
+        }
+
+        .giRdMi {
+            opacity: 1;
+        }
+
+            .giRdMi .title {
+                margin-top: 0px;
+                margin-bottom: 10px;
+                font-size: 18px;
+                color: rgb(95, 95, 95);
+                font-weight: 700;
+            }
+
+        .fJEQQi {
+            background: rgb(255, 255, 255);
+            color: rgb(51, 51, 51);
+            padding: 15px 25px 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid rgb(221, 221, 221);
+        }
+
+            .fJEQQi .list {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+            }
+
+        .fTvtIP {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .bqACGT {
+            display: block;
+            margin-right: 15px;
+        }
+
+            .bqACGT input[type="radio"] {
+                position: absolute;
+                height: 1px;
+                width: 1px;
+                visibility: hidden;
+                clip: rect(0px, 0px, 0px, 0px);
+                opacity: 0;
+            }
+
+                .bqACGT input[type="radio"]:checked + .radio-fake {
+                    border-color: rgb(27, 168, 255);
+                }
+
+            .bqACGT .radio-fake {
+                width: 18px;
+                height: 18px;
+                border: 1px solid rgb(120, 120, 120);
+                border-radius: 50%;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 10px 12px 10px 0px;
+                position: relative;
+                z-index: 1;
+                color: rgb(120, 120, 120);
+            }
+
+            .bqACGT input[type="radio"]:checked + .radio-fake::before {
+                transform: scale(1);
+            }
+
+            .bqACGT .radio-fake::before {
+                content: "";
+                position: absolute;
+                left: 2px;
+                top: 2px;
+                width: 12px;
+                height: 12px;
+                background-color: rgb(27, 168, 255);
+                border-radius: 50%;
+                transform: scale(0);
+                transition: transform 0.3s ease 0s;
+            }
+
+            .bqACGT .label {
+                font-size: 13px;
+                line-height: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                max-width: 80%;
+            }
+
+        .fTvtIP {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .ggAFge .order-button {
+            width: 50%;
+        }
+
+            .ggAFge .order-button button {
+                margin: 10px 0px 0px;
+                padding: 4px 12px;
+                width: 360px;
+                height: 50px;
+                line-height: 2;
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                border: 1px solid rgb(172, 34, 39);
+                outline-color: rgb(204, 204, 204);
+                border-radius: 3px;
+                cursor: pointer;
+                background: linear-gradient(rgb(239, 57, 89), rgb(215, 32, 65));
+            }
+
+            .ggAFge .order-button p {
+                text-align: left;
+                margin: 10px 0px;
+                color: rgb(80, 80, 80);
+                font-size: 13px;
+            }
+
+        .jFEIKb {
+            flex-basis: 28%;
+            padding: 40px 15px 0px;
+        }
+
+        .fxjiAa {
+            padding: 10px 15px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(221, 221, 221);
+            color: rgb(51, 51, 51);
+            border-radius: 3px;
+            margin-top: 15px;
+        }
+
+            .fxjiAa .title {
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                border-bottom: 1px solid rgb(201, 201, 201);
+                padding-bottom: 10px;
+                font-size: 13px;
+                line-height: 31px;
+            }
+
+                .fxjiAa .title a {
+                    border: 1px solid rgb(204, 204, 204);
+                    font-size: 12px;
+                    padding-left: 14px;
+                    padding-right: 14px;
+                    height: 31px;
+                    outline-color: rgb(204, 204, 204);
+                    background: linear-gradient(rgb(255, 255, 255), rgb(247, 247, 247));
+                    border-radius: 2px;
+                    text-decoration: none;
+                    color: rgb(51, 51, 51);
+                }
+
+            .fxjiAa .address .name {
+                font-size: 15px;
+                font-weight: 700;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            .fxjiAa .address span {
+                display: block;
+                font-size: 13px;
+            }
+
+            .fxjiAa .address .street,
+            .fxjiAa .address .phone {
+                padding: 2px 0px;
+            }
+
+        .UHbjr {
+            padding: 10px 15px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(221, 221, 221);
+            border-radius: 3px;
+            color: rgb(51, 51, 51);
+            margin-top: 15px;
+        }
+
+            .UHbjr .title {
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                border-bottom: 1px solid rgb(201, 201, 201);
+                padding-bottom: 10px;
+                font-size: 13px;
+                line-height: 31px;
+            }
+
+                .UHbjr .title a {
+                    border: 1px solid rgb(204, 204, 204);
+                    font-size: 12px;
+                    padding-left: 14px;
+                    padding-right: 14px;
+                    height: 31px;
+                    outline-color: rgb(204, 204, 204);
+                    background: linear-gradient(rgb(255, 255, 255), rgb(247, 247, 247));
+                    border-radius: 2px;
+                    text-decoration: none;
+                    color: rgb(51, 51, 51);
+                }
+
+            .UHbjr .cart {
+                font-size: 12px;
+            }
+
+                .UHbjr .cart .product {
+                    margin-bottom: 15px;
+                }
+
+        .iylcMU {
+            padding: 12px 0px;
+            border-bottom: 1px solid rgb(201, 201, 201);
+            font-size: 11px;
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+        }
+
+            .iylcMU .info {
+                flex: 2 1 0%;
+            }
+
+                .iylcMU .info .qty {
+                    padding-right: 10px;
+                }
+
+                .iylcMU .info .product-name {
+                    color: rgb(0, 127, 240);
+                    text-decoration: none;
+                }
+
+                .iylcMU .info .seller-name {
+                    display: block;
+                    margin-top: 5px;
+                }
+
+            .iylcMU .price {
+                flex: 1 1 0%;
+                text-align: right;
+            }
+
+        .ifcYED {
+            margin-bottom: 13px;
+            position: relative;
+        }
+
+            .ifcYED .inner {
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+
+            .ifcYED .sponsor__link {
+                color: rgb(13, 92, 182);
+                display: inline-block;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+
+        .byenE .sponsor__items {
+            padding: 0px;
+            margin: 15px 0px 0px;
+            list-style: none;
+            max-width: 550px;
+        }
+
+        .byenE .sponsor__item {
+            display: flex;
+            flex-wrap: nowrap;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .byenE .sponsor__name {
+            color: rgb(36, 36, 36);
+            font-size: 12px;
+            font-weight: 300;
+        }
+
+        .byenE .sponsor__prices {
+            color: rgb(36, 36, 36);
+            font-size: 12px;
+            font-weight: 300;
+        }
+
+        .UHbjr .cart .price-summary .total {
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            border-top: 2px solid rgb(201, 201, 201);
+            padding-top: 12px;
+            margin-bottom: 0px;
+            line-height: 19px;
+            font-weight: 700;
+        }
+
+            .UHbjr .cart .price-summary .total .value {
+                color: rgb(238, 35, 71);
+                font-size: 19px;
+                font-weight: 400;
+                text-align: right;
+            }
+
+                .UHbjr .cart .price-summary .total .value i {
+                    display: block;
+                    font-size: 12px;
+                    color: rgb(51, 51, 51);
+                }
+    </style>
+</head>
+<body>
+    
+        <main style="background: rgb(255, 255, 255)">
+            <div class="Container-itwfbd-0 jFkAwY" style="display: flex; width: 1200px; flex-wrap: wrap">
+                <div class="styles__Left-hcztvk-1 ggAFge">
+                    <div class="styles__Section-hcztvk-0 giRdMi">
+                        <h3 class="title">Chọn hình thức thanh toán</h3>
+                        <div class="styles__StyledPaymentMethods-sc-1u5r3pb-0 fJEQQi">
+                            <ul class="list">
+                                <li class="styles__StyledMethod-sc-1u5r3pb-1 fTvtIP">
+                                    <label class="RadioCheckout__StyledRadio-bkaeis-0 bqACGT">
+                                        <input type="radio" readonly="" name="payment-methods" value="cod" /><span class="radio-fake"></span><span class="label">Thanh toán tiền mặt khi nhận hàng</span>
+                                    </label>
+                                </li>
+                                <li class="styles__StyledMethod-sc-1u5r3pb-1 fTvtIP">
+                                    <label class="RadioCheckout__StyledRadio-bkaeis-0 bqACGT">
+                                        <input type="radio" readonly="" name="payment-methods" value="cybersource" /><span class="radio-fake"></span><span class="label">Thanh toán bằng thẻ quốc tế Visa, Master, JCB</span>
+                                    </label>
+                                </li>
+                                <li class="styles__StyledMethod-sc-1u5r3pb-1 fTvtIP">
+                                    <label class="RadioCheckout__StyledRadio-bkaeis-0 bqACGT">
+                                        <input type="radio" readonly="" name="payment-methods" value="pay123" /><span class="radio-fake"></span><span class="label">Thẻ ATM nội địa/Internet Banking (Miễn phí thanh toán)</span>
+                                    </label>
+                                </li>
+
+                                <li class="styles__StyledMethod-sc-1u5r3pb-1 fTvtIP">
+                                    <label class="RadioCheckout__StyledRadio-bkaeis-0 bqACGT">
+                                        <input type="radio" readonly="" name="payment-methods" value="zalopay" /><span class="radio-fake"></span>
+                                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/icon-zalopay.svg" alt="zalopay" class="card-img" style="width:44px" /><span class="label">Thanh toán bằng ZaloPay</span>
+                                    </label>
+                                    <p class="mli class="styles__StyledMethod-sc-1u5r3pb-1 fTvtIP">
+                                        <label class="RadioCheckout__StyledRadio-bkaeis-0 bqACGT">
+                                            <input type="radio" readonly="" name="payment-methods" value="momo" /><span class="radio-fake"></span>
+                                            <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/icon-momo.svg" style="width: 44px;" alt="momo" class="card-img" width="44px" /><span class="label">Thanh toán bằng ví MoMo</span>
+                                        </label>
+                                    <p class="message"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="order-button">
+                        <a id="ThanhToan"><button  class="">ĐẶT MUA</button></a>
+                        <p>(Xin vui lòng kiểm tra lại đơn hàng trước khi Đặt Mua)</p>
+                    </div>
+                </div>
+                <div class="styles__Right-hcztvk-2 jFEIKb">
+                    <div class="ShippingAddress__StyledShippingAddress-sc-12icqkv-0 fxjiAa">
+                        @*<div class="title">
+                            <span>Địa chỉ giao hàng</span><a href="/ThanhToan/Shipping">Sửa</a>
+                        </div>*@
+                        <div class="address">
+                            <span class="name" id="Name">@Model.Ten</span>
+                            <span class="street" id="Adress">
+                                @Model.DiaChi
+                            </span>
+                            <span class="phone" id="Phone">Điện thoại: @Model.SDT</span>
+                        </div>
+                    </div>
+                    <div class="OrderSummary__StyledOrderSummary-ue7sy3-0 UHbjr">
+                        <div class="title">
+                            <span>Đơn hàng (1 sản phẩm)</span><a href="/GioHang/XemGioHang">Sửa</a>
+                        </div>
+                        <div class="cart">
+                            <div class="product">
+                                @foreach (Ve.Models.GIOHANG item in ViewBag.lstGH)
+                                {
+                                    <div class="OrderSummary__StyledItem-ue7sy3-1 iylcMU">
+                                        <div class="info">
+                                            <strong class="qty">@item.SoLuong x</strong>
+                                            <a href="#" target="_blank" class="product-name">@item.VE.TenVe</a><span class="seller-name">Cung cấp bởi <strong>AquariumNexus</strong></span>
+                                        </div>
+                                        <div class="price">@(Convert.ToInt32(@item.VE.DonGia) * Convert.ToInt32(item.SoLuong)) ₫</div>
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="price-summary">
+                                <div class="OrderSummary__StyledPriceInfo-ue7sy3-2 ifcYED">
+                                    <div class="inner">
+                                        <div class="name">Tạm tính</div>
+                                        <div class="value">@ViewBag.TongTien đ</div>
+                                    </div>
+                                </div>
+                                <div class="OrderSummary__StyledPriceInfo-ue7sy3-2 ifcYED">
+                                    <div class="inner">
+                                        <div class="name">Phí vận chuyển</div>
+                                        <div class="value">@(Convert.ToInt32(39000) + Convert.ToInt32(@ViewBag.FPhiShip)) đ</div>
+                                    </div>
+                                    <div class="OrderSummary__StyledSponsorFee-ue7sy3-4 byenE">
+                                        <ul class="sponsor__items">
+                                            <li class="sponsor__item">
+                                                <span class="sponsor__name">Phí ban đầu</span><span class="sponsor__prices sponsor__prices--null">39.000 đ</span>
+                                            </li>
+                                            <li class="sponsor__item">
+                                                <span class="sponsor__name">Ưu đãi</span><span class="sponsor__prices sponsor__prices--positive">@ViewBag.FPhiShip đ</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="total">
+                                    <div class="name">Thành tiền:</div>
+                                    <div class="value" id="TongTien">
+                                        @(Convert.ToInt32(@ViewBag.TongTien) + Convert.ToInt32(39000) + Convert.ToInt32(@ViewBag.FPhiShip)) đ
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>   
+</body>
+</html>
+<script type="text/javascript">
+    function CapNhatThongTin(){
+        // Xác định 2 thẻ theo id
+        
+        var Name = $("#Name").text();
+        var Adress = $("#Adress").text();
+        var Phone = $("#Phone").text();
+        var tong = $("#TongTien").text();
+        ThanhToan.setAttribute("href", "/ThanhToan/XacNhan?tongtien=" + tong + "&name=" + Name + "&phone=" + Phone + "&adress=" + Adress)       
+    };
+
+    window.onload = function () {
+        CapNhatThongTin();
+    }
+
+</script>
+
+

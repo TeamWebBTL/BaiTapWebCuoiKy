@@ -1,0 +1,98 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using CaptchaMvc;
+@using Ve.Models;
+@model KHACHHANG
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Animals</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(3)').addClass('active');
+
+        });
+    </script>
+</head>
+<div class="DangKy">
+    <div style="font-size:small;padding:1rem 0">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h3 style="text-align:center">Đăng kí thành viên</h3>           
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row form-group py-1 mb-2" style="padding:100px">
+            <div class="col-md-1">
+             </div>
+            <div class="col-md-5 register-top-grid">
+                <h3>Thông tin cá nhân</h3>
+                <div>
+                    <span>Tài Khoản</span>
+                    @Html.TextBoxFor(model => model.TaiKhoan)
+                    @Html.ValidationMessageFor(model => model.TaiKhoan)
+                </div>
+                <div>
+                    <span>Họ tên</span>
+                    @Html.TextBox("Ten")
+                </div>
+                <div>
+                    <span>Địa chỉ</span>
+                    @Html.TextBox("DiaChi")
+                </div>
+                <div>
+                    <span>Email</span>
+                    @Html.TextBox("Email")
+                </div>
+                <div>
+                    <span>SĐT</span>
+                    @Html.TextBox("SDT")
+                </div>
+            </div>
+            
+            <div class="col-md-5 register-bottom-grid" style="left:100px">
+                <h3>Thông tin đăng nhập</h3>
+                <div>
+                    <span>Mật khẩu</span>
+                    @Html.Password("MatKhau")
+                </div>
+                <div>
+                    <span>Nhập lại mật khẩu</span>
+                    @Html.Password("MatKhau")
+                </div>
+                <div>
+                    @Html.MathCaptcha()
+                </div>
+
+                <div style="padding-top:15px">
+                    <input type="submit" value="Xác nhận" onclick="myFunction()">
+                </div>
+                <div style="padding-top:30px">
+                    <h3 style="color:red">@ViewBag.ThongBao</h3>
+                </div>
+            </div>
+
+        </div>
+        }
+
+    </div>
+
+</div>
+
+

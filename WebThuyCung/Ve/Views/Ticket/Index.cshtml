@@ -1,0 +1,103 @@
+﻿@using Ve.Models;
+
+@{
+    ViewBag.Title = "Mua Vé";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Nexus Aquarium|Ticket</title>
+    <link rel="stylesheet" href="~/public/css/animal.css">
+    <link rel="stylesheet" href="~/public/css/style.css">
+    <link rel="stylesheet" href="~/public/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/public/vendor/fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('li.nav-item').removeClass('active');
+            $('li.nav-item:eq(3)').addClass('active');
+
+        });
+    </script>
+    
+</head>
+<body>
+    <div class=" text-center man_hinh">
+        <img src="~/public/images/anh-nen-6.jpg" alt="" style="width:100%" >
+        <div class="row">
+            <div class="container" style="position:absolute ;top:30%;left:10%">
+                <div class="row form-group py-1 mb-2">
+                    <div class="col-md-4 col-sm-12 text-md-center">
+                        <img src="@Url.Content("~/public/images/event-1.jpg")" alt="" style="border-radius:50%;height:200px;width:200px">
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-md-center">
+                        <img src="@Url.Content("~/public/images/demo-2.jpg")" alt="" style="border-radius:50%;height:200px;width:200px">
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-md-center">
+                        <img src="@Url.Content("~/public/images/inner-event-2-1.jpg")" alt="" style="border-radius:50%;height:200px;width:200px">
+                    </div>
+                </div>
+                <div class="row form-group py-1 mb-2">
+                    <div class="col-md-4 col-sm-12 text-md-center">
+                        @if (Session["Account"] != null)
+                        {
+                            <a href="@Url.Action("ChiTietVe","Ticket",new { id = 1})"><button type="button" class="btn btn-primary ">Vé Người Lớn</button></a>
+                        }
+                        else
+                        {
+                            <a class="lock" href="@Url.Action("Login", "Home")" ><button type="button" class="btn btn-primary "id="btnDangNhap2">Vé Người Lớn</button></a>
+                        }
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-md-center">
+
+                        @if (Session["Account"] != null)
+                        {
+                            <a href="@Url.Action("ChiTietVe","Ticket",new { id = 2})"><button type="button" class="btn btn-primary ">Vé Trẻ Em</button></a>
+                        }
+                        else
+                        {
+                            <a class="lock" href="@Url.Action("Login", "Home")"><button type="button" class="btn btn-primary " id="btnDangNhap3">Vé Trẻ Em</button></a>
+                        }
+
+                    </div>
+                    <div class="col-md-4 col-sm-12 text-md-center">
+
+                        @if (Session["Account"] != null)
+                        {
+                            <a href="@Url.Action("ChiTietVe","Ticket",new { id = 3})"><button type="button" class="btn btn-primary ">Vé Theo Đoàn</button></a>
+                            
+                        }
+                        else
+                        {
+                            <a class="lock" href="@Url.Action("Login", "Home")"><button type="button" class="btn btn-primary " id="btnDangNhap4">Vé Theo Đoàn</button></a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
+<script type="text/javascript"> 
+    //Ví dụ về lấy giá trị từ textbox
+    $("#btnDangNhap1").click(function () {
+        var TaiKhoan = $(".TaiKhoan").val();
+        var MatKhau = $(".MatKhau").val();
+        //alert("Tài khoản:" + TaiKhoan + "\n Mật khẩu:" + MatKhau);
+        if (TaiKhoan == "") {
+            alert("Lỗi");
+            return;
+        }
+    });
+</script>
+ 

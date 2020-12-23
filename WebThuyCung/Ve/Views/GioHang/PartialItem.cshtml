@@ -1,0 +1,11 @@
+﻿@using Ve.Models;
+@model List<GIOHANG>
+@{
+    ViewBag.Title = "PartialItem";
+    Layout = "~/Views/Shared/BottomPartial.cshtml";
+}
+@foreach (var item in Model)
+{
+    @Html.Action("ChiTietVe","GioHang",new {mave = item.ID_Ve,soluong = item.SoLuong})
+}
+

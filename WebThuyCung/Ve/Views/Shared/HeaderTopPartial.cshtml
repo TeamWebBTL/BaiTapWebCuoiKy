@@ -1,0 +1,32 @@
+﻿@using Ve.Models
+
+<head>
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                
+                    @*Hiện thông tin nếu đăng nhập thành công*@
+                    @if (Session["Account"] != null)
+                    {
+                        KHACHHANG kh = (KHACHHANG)Session["Account"];
+                        <ul class="navbar-nav">
+                            <li><a href="@Url.Action("Index","KhachHang")">Chào @kh.Ten</a></li>                           
+                        </ul>
+                        <ul class="navbar-nav">
+                            @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")
+                         </ul>                        
+                     }
+
+                     else
+                     {
+                        <ul>
+                             <li><a href="@Url.Action("Login", "Home")" >Đăng nhập</a></li>
+                             <li><a href="@Url.Action("Dangky", "Home")">Đăng ký</a></li>
+                            
+                        </ul>
+                     }                
+            </div>
+        </div>
+    </div>
+</head>
+
