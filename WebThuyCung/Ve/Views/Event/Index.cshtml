@@ -74,17 +74,45 @@
             <div class="row">
                 <div class="pl-3 col-md-3">
                     <form id="filter-sk">
+                        @*<p>Sự Kiện  :         </p>*@
                         <div class="custom-radio">
-                            <input type="radio" class="" name="loc_sk" id="customRadio" onchange="filter()" value="#"> @*@if (String.IsNullOrEmpty(type)) {checked}*@
-                            <label class="custom-control-label" for="customRadio">Tất cả</label>
+                            @if (ViewBag.type == "")
+                            {
+                                <input type="radio" class="" name="loc_sk" checked="checked" id="customRadio" onchange="filter()" value=""> @*@if (String.IsNullOrEmpty(type)) {checked}*@
+                                <label class="custom-control-label" for="customRadio">Tất cả</label>
+                            }
+                            else
+                            {
+                                <input type="radio" class="" name="loc_sk" checked="checked" id="customRadio" onchange="filter()" value=""> @*@if (String.IsNullOrEmpty(type)) {checked}*@
+                                <label class="custom-control-label" for="customRadio">Tất cả</label>
+                            }
+
                         </div>
                         <div class="custom-radio">
-                            <input type="radio" class="" name="loc_sk" id="customRadio1" onchange="filter()" value="gia_dinh">
-                            <label class="custom-control-label" for="customRadio1">Sự kiện gia đình</label>
+                            @if (ViewBag.type == "gia_dinh")
+                            {
+                                <input type="radio" class="" checked="checked" name="loc_sk" id="customRadio1" onchange="filter()" value="gia_dinh">
+                                <label class="custom-control-label" for="customRadio1">Sự kiện gia đình</label>
+                            }
+                            else
+                            {
+                                <input type="radio" class=""  name="loc_sk" id="customRadio1" onchange="filter()" value="gia_dinh">
+                                <label class="custom-control-label" for="customRadio1">Sự kiện gia đình</label>
+                            }
+
                         </div>
                         <div class="custom-radio">
-                            <input type="radio" class="" name="loc_sk" id="customRadio3" onchange="filter()" value="tre_em" >
-                            <label class="custom-control-label" for="customRadio3">Sự kiện trẻ em</label>
+                            @if (ViewBag.type == "tre_em")
+                            {
+                                <input type="radio" class="" checked="checked" name="loc_sk" id="customRadio3" onchange="filter()" value="tre_em">
+                                <label class="custom-control-label" for="customRadio3">Sự kiện trẻ em</label>
+                            }
+                            else
+                            {
+                                <input type="radio" class="" name="loc_sk" id="customRadio3" onchange="filter()" value="tre_em">
+                                <label class="custom-control-label" for="customRadio3">Sự kiện trẻ em</label>
+                            }
+
                         </div>
                     </form>
                 </div>
@@ -121,15 +149,22 @@
  
     <script type="text/javascript">
     function filter(){
-        var su_kien = $("input[name='loc_sk']:checked").val();
-        let i = parseInt(window.location.href.search(/\?/g));
-        let current_url = i < 0
-            ? window.location.href
-            : window.location.href.slice(0, i);
-        window.location.href = current_url + "?type=" + su_kien;        
+          var x = $("input[name='loc_sk']:checked").val();                   
+          $.ajax({
+              type: "GET",
+              url: '@Url.Action("Index","Event")',
+              data: {
+                  type: x,
+              },
+              success: function (result) {
+                  document.querySelector('html').innerHTML = result;
+              }
+
+            })
+
+
+        
         }
-
-
     $('.carousel').carousel({
         interval: 1500
     })

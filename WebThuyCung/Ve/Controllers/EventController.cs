@@ -17,11 +17,14 @@ namespace Ve.Controllers
         // GET: Event
         public ActionResult Index(string type)
         {
+
+            ViewBag.type = type;
             ViewBag.listEvent = (from sk in db.SUKIENs select sk).ToList();
             if (!String.IsNullOrEmpty(type))
             {
                 ViewBag.listEvent = db.SUKIENs.Where(c => c.LoaiSuKien == type).ToList();
             }
+            var SK = db.SUKIENs.Where(c => c.LoaiSuKien == type).FirstOrDefault();
             return View();
         }
         public ActionResult Details(int id)
