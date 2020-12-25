@@ -1,0 +1,41 @@
+﻿@using Ve.Models;
+@model List<KHACHHANG>
+@{
+    ViewBag.Title = "Index";
+}
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align:center">Mã Kh</th>
+                    <th style="text-align:center">Tên KH</th>
+                    <th style="text-align:center">Email</th>
+                    <th style="text-align:center">SĐT</th>
+                    <th style="text-align:center">Thêm</th>
+                    <th style="text-align:center">Sửa</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="text-align:center">
+                            @item.ID
+                        </td>
+                        <td style="text-align:center">@item.Ten</td>
+                        <td style="text-align:center">@item.Email</td>
+                        <td style="text-align:center">@item.SDT</td>
+                        <td>
+                            <a href="/LopCNTT1_DOVANQUYEN/DangKy">Thêm</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Xoa", "LopCNTT1_DOVANQUYEN", new {maKH = @item.ID})"> Xóa</a>
+                        </td>
+                    </tr>
+                 }
+
+            </tbody>           
+        </table>
+
+    </div>

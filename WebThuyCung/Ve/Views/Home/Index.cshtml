@@ -99,10 +99,12 @@
                         <h2 class="pt-2 mb-2 text-xs-center">Sự kiện hot tháng 11</h2>
                         @foreach (var item in Model)
                          {
-                          <div class="col-xs-12 text-xs-center">
-                            <h3>@item.TieuDe</h3>
-                            <a href="/Event/Details/@item.ID"><button type="button" class="btn btn-primary ">Tìm hiểu thêm</button></a>
-                            </div>
+                              <div class="col-xs-12 text-xs-center">
+                                  <br/>
+                                <h3>@item.TieuDe</h3>
+                                  <br/>
+                                <a href="/Event/Details/@item.ID"><button type="button" class="btn btn-primary " style="color:cyan">Tìm hiểu thêm</button></a>
+                                </div>
                          }
                     </div>
                     <div class="col-xs-5 img">

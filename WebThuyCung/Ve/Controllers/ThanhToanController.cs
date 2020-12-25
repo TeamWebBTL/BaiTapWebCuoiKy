@@ -97,7 +97,7 @@ namespace Ve.Controllers
                          db.SaveChanges();
                     }
                }
-               GuiEmail("Xác nhận đơn hàng", "dovanquyen12a2@gmail.com", "hoangtrecon123@gmail.com", "01688865058a", "Đơn hàng của bạn đã được đặt thành công");
+               GuiEmail("Xác nhận đơn hàng", ND.Email, "hoangtrecon123@gmail.com", "01688865058a", "Đơn hàng của bạn đã được đặt thành công");
                return RedirectToAction("XemDonHang","ThanhToan");
                
           }

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LopCNTT1_DOVANQUYENController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\ThanhToanController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
@@ -2115,6 +2116,8 @@
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\ThanhToan\XemDonHang1.cshtml" />
     <Content Include="Views\ThanhToan\ChiTietDH.cshtml" />
+    <Content Include="Views\LopCNTT1_DOVANQUYEN\Index.cshtml" />
+    <Content Include="Views\LopCNTT1_DOVANQUYEN\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
